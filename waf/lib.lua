@@ -83,3 +83,11 @@ function waf_output()
     end
 end
 
+--Get the host
+function get_host_name()
+    HOST_NAME = ngx.req.get_headers()["host"]
+    if HOST_NAME == nil then
+        HOST_NAME  = "unknown"
+    end
+	return HOST_NAME
+end
