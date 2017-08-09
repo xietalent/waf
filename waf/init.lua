@@ -175,3 +175,18 @@ function post_attack_check()
     return false
 end
 
+--allow white host
+function white_host_check()
+     if config_white_host_check == "on" then
+        local HOST_WHITE_RULE = get_rule('whitehost.rule')
+        local WHITE_HOST = get_host_name()
+        if HOST_WHITE_RULE ~= nil then
+            for _,rule in pairs(HOST_WHITE_RULE) do
+                if rule ~= "" and rulematch(WHITE_HOST,rule,"jo") then
+                    log_record('White_IP',ngx.var_request_uri,"_","_")
+                    return true
+                end
+            end
+        end
+    end
+end
