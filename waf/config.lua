@@ -3,9 +3,11 @@
 --waf status
 config_waf_enable = "on"
 --log dir
-config_log_dir = "/tmp"
+config_log_dir = "/usr/local/nginx/logs/"
 --rule setting
-config_rule_dir = "/usr/local/openresty/nginx/conf/waf/rule-config"
+config_rule_dir = "/usr/local/nginx/conf/waf/config/"
+--enable/disable host filtering
+config_white_host_check = "on"
 --enable/disable white url
 config_white_url_check = "on"
 --enable/disable white ip
@@ -23,7 +25,7 @@ config_cookie_check = "on"
 --enable/disable cc filtering
 config_cc_check = "on"
 --cc rate the xxx of xxx seconds
-config_cc_rate = "10/60"
+config_cc_rate = "50/100"
 --enable/disable post filtering
 config_post_check = "on"
 --config waf output redirect/html
