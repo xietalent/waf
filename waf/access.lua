@@ -4,6 +4,7 @@ function waf_main()
     if white_ip_check() then
     elseif black_ip_check() then
     elseif user_agent_attack_check() then
+	elseif white_host_check() then
     elseif cc_attack_check() then
     elseif cookie_attack_check() then
     elseif white_url_check() then
